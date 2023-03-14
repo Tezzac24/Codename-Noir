@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887f559c471d1124eb6a374df425313a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDash: 1
   cam: {fileID: 0}
 --- !u!114 &6086590568041065695
 MonoBehaviour:

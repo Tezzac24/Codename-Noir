@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         // Changes mouseposition val from screen pixels to in World coordinates
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
             StartCoroutine(Dash());
         }
@@ -65,9 +65,10 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        //rb.gravityScale = 0;
         rb.velocity = movement * dashingPower;
+        Physics2D.IgnoreLayerCollision(6, 7, true);
         yield return new WaitForSeconds(dashingTime);
+        Physics2D.IgnoreLayerCollision(6, 7, false);
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
