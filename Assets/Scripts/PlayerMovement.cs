@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float moveSpeed = 5f;
+    private float moveSpeed = 2.5f;
     private float activeMoveSpeed;
 
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 24f;
+    private float dashingPower = 12f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2.5f;
 
