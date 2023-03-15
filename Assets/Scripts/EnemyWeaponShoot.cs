@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponShooting : MonoBehaviour
+public class EnemyWeaponShoot : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
+    private float timer;
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
-        // On left click shoot
-        if(Input.GetMouseButtonDown(0))
+        // lets enemy shoot in intervals
+        timer += Time.deltaTime;
+
+        if (timer > 2)
         {
+            timer = 0;
             Shoot();
         }
     }
 
+    // Instantiates and fires bullets
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
