@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
+  dashingPower: 4
   cam: {fileID: 0}
 --- !u!114 &6086590568041065695
 MonoBehaviour:
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
+  isDead: 0
 --- !u!1 &6932596363503387315
 GameObject:
   m_ObjectHideFlags: 0
