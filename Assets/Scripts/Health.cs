@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public float takeDamage(float _Damage)
+    public void takeDamage(float _Damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _Damage, 0, startingHealth);
 
@@ -42,6 +42,5 @@ public class Health : MonoBehaviour
         {
             // player is ded anim
         }
-        return 0f;
     }
 }
