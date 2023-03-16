@@ -6,6 +6,11 @@ public class Bullet : MonoBehaviour
 {
     //public GameObject hitEffect;
 
+    void Update()
+    {
+        Physics2D.IgnoreLayerCollision(7, 7, true);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         //GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
