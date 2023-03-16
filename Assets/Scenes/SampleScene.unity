@@ -244,45 +244,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 4765249507682295504, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
   m_PrefabInstance: {fileID: 4765249507849381551}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &574111335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4765249507682295507, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
-  m_PrefabInstance: {fileID: 4765249507849381551}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &574111336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574111335}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &639679966
 GameObject:
   m_ObjectHideFlags: 0
@@ -19112,18 +19073,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 82672500}
-    - target: {fileID: 4765249507682295342, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
-      propertyPath: damping
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765249507682295342, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
-      propertyPath: offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4765249507682295342, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
-      propertyPath: offset.z
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 4765249507682295343, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
       propertyPath: m_RootOrder
       value: 0

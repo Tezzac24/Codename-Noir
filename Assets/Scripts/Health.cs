@@ -7,15 +7,24 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     [SerializeField] private float currentHealth;
 
+    private SpriteRenderer sr;
+    private Color ogColor;
+
     private void Awake()
     {
         currentHealth = startingHealth;
     }
 
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        ogColor = sr.color;
+    }
+
     void Update()
     {
         // Destroys object when health runs out
-        if(/*gameObject.CompareTag("Enemy") && */currentHealth <= 0)
+        if(currentHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -37,10 +46,18 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             // player gets hurt anim
+            StartCoroutine(SwitchColor());
         }
         else
         {
             // player is ded anim
         }
+    }
+
+    IEnumerator SwitchColor()
+    {
+        sr.color = new Color(255f, 255f, 255f);
+        yield return new WaitForSeconds(0.1f);
+        sr.color = ogColor;
     }
 }
