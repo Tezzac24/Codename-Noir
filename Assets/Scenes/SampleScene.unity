@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32487566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32487568}
+  - component: {fileID: 32487567}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &32487567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32487566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705daa970e64b3e47b78a691795fb2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 831690443}
+  Camera: {fileID: 574111339}
+  waitTime: 2
+--- !u!4 &32487568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32487566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &82672500 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7084402411335863770, guid: 664fc668e4a113c49858ec0e0d4cbd6d, type: 3}
@@ -242,6 +290,11 @@ BoxCollider2D:
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4765249507682295504, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
+  m_PrefabInstance: {fileID: 4765249507849381551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &574111339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4765249507682295343, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}
   m_PrefabInstance: {fileID: 4765249507849381551}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &639679966
@@ -18557,6 +18610,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &831690443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 118379997429090466, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
+  m_PrefabInstance: {fileID: 118379997350615601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1117872512
 GameObject:
   m_ObjectHideFlags: 0
