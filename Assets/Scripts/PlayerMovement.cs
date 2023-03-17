@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float moveSpeed = 2.5f;
+    private bool facingRight = true;
 
     private bool canDash = true;
     private bool isDashing;
@@ -16,15 +17,14 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     private Vector2 movement;
     private Vector2 mousePos;
-
-
+    private Animator anim;
 
     void Start()
     {
         // what you come here to look at u aint got no buzniuss being here lil boah imma show u a mans world kittenr   
         // Initialises variable 'rb' as Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
-        Animator animator;
+        anim =  GetComponent<Animator>();
     }
 
     void Update()
@@ -35,9 +35,29 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        //  stores keyboard input in vector2 movement
+        // stores keyboard input in vector2 movement
         movement.y = Input.GetAxisRaw("Vertical");
         movement.x = Input.GetAxisRaw("Horizontal");
+
+        // sets anims
+        if (movement != new Vector2(0,0))
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+        // flip func
+        if(movement.x > 0 && facingRight) // if you move left but are facing right flip left
+        {
+            flip();
+        }
+        else if (movement.x < 0 && !facingRight)
+        {
+            flip();
+        }
 
         // Changes mouseposition val from screen pixels to in World coordinates
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -62,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         // Makes player sprite face mouse cursor
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
-        rb.rotation = angle;
+        //rb.rotation = angle;
     }
 
     private IEnumerator Dash() 
@@ -78,6 +98,12 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+
+    private void flip()
+    {
+        facingRight = !facingRight; // if var is true it will set to false if false it sets to true
+        transform.Rotate(0, 180, 0);
 
     }
 }
