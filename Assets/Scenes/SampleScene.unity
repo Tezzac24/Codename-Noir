@@ -204,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 503565554}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cd8b2dafb09fb447a8dacdc90b28712, type: 2}
+  m_Controller: {fileID: 9100000, guid: 007a8fbf6d2fb9143b5f67802f1d9733, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -346,7 +346,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.25, y: 0.32}
-    newSize: {x: 0.25, y: 0.32}
+    newSize: {x: 0.44, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
