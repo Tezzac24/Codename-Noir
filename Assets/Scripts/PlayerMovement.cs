@@ -17,11 +17,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Vector2 mousePos;
 
+
+
     void Start()
     {
         // what you come here to look at u aint got no buzniuss being here lil boah imma show u a mans world kittenr   
         // Initialises variable 'rb' as Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
+        Animator animator;
     }
 
     void Update()
