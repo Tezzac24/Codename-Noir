@@ -97,9 +97,9 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = movement * dashingPower;
 
         // momentarily gives iframes for the duration of dashingTime
-        Physics2D.IgnoreLayerCollision(6, 7, true);
+        Physics2D.IgnoreLayerCollision(6, 8, true);
         yield return new WaitForSeconds(dashingTime);
-        Physics2D.IgnoreLayerCollision(6, 7, false);
+        Physics2D.IgnoreLayerCollision(6, 8, false);
         isDashing = false;
         yield return new WaitForSeconds(1);
         anim.SetBool("isDashing", false);

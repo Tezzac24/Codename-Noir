@@ -18992,17 +18992,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 118379997429090469, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6330435824016858897, guid: 3617749c94db9f042a36fd82ae30682e, type: 3}
     - target: {fileID: 118379997429090472, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 118379997429090472, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 118379997429090472, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.24
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 118379997429090472, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
       propertyPath: m_LocalPosition.z

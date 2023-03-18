@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     //public GameObject hitEffect;
 
     void Update()
     {
-        Physics2D.IgnoreLayerCollision(7, 7, true);
-        Physics2D.IgnoreLayerCollision(7, 6, true);
+        Physics2D.IgnoreLayerCollision(8, 7, true);
+        Physics2D.IgnoreLayerCollision(8, 9, true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
