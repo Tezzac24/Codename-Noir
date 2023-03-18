@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Vector2 mousePos;
     private Animator anim;
+    public GameObject firepoint;
+    private WeaponShooting Ws;
 
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         // on key down dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
+            anim.SetBool("isDashing", true);
             StartCoroutine(Dash());
         }
     }
@@ -81,8 +84,10 @@ public class PlayerMovement : MonoBehaviour
         
         // Makes player sprite face mouse cursor
         Vector2 lookDir = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         //rb.rotation = angle;
+        firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
+
     }
 
     private IEnumerator Dash() 
@@ -96,7 +101,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         Physics2D.IgnoreLayerCollision(6, 7, false);
         isDashing = false;
-        yield return new WaitForSeconds(dashingCooldown);
+        yield return new WaitForSeconds(1);
+        anim.SetBool("isDashing", false);
+        yield return new WaitForSeconds(dashingCooldown-1);
         canDash = true;
     }
 
