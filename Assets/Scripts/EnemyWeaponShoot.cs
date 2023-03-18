@@ -6,13 +6,14 @@ public class EnemyWeaponShoot : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject bulletPrefab;
+    AIChase ai;
 
-    public float bulletForce = 20f;
-    private float timer;
+    [SerializeField] float bulletForce = 20f;
+    float timer;
 
     void Start()
     {
-
+        ai = gameObject.GetComponent<AIChase>();
     }
 
     void Update()
@@ -20,7 +21,7 @@ public class EnemyWeaponShoot : MonoBehaviour
         // lets enemy shoot in intervals
         timer += Time.deltaTime;
 
-        if (timer > 2)
+        if (timer > 2 && ai.distance < ai.chaseDist)
         {
             timer = 0;
             Shoot();
