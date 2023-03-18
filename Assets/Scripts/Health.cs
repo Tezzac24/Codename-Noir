@@ -7,8 +7,6 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     [SerializeField] private float currentHealth;
 
-    public bool isDead = false;
-
     private SpriteRenderer sr;
     private Color ogColor;
 
@@ -36,7 +34,7 @@ public class Health : MonoBehaviour
     // on collision with a bullet gameobject takes damage
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Bullet") && !isDead)
+        if (other.gameObject.CompareTag("Bullet"))
         {
             takeDamage(20);
         }
