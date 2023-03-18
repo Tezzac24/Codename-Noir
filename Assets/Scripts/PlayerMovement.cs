@@ -101,9 +101,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         Physics2D.IgnoreLayerCollision(6, 8, false);
         isDashing = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         anim.SetBool("isDashing", false);
-        yield return new WaitForSeconds(dashingCooldown-1);
+        yield return new WaitForSeconds(dashingCooldown-0.5f);
         canDash = true;
     }
 
