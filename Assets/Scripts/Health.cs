@@ -7,10 +7,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     [SerializeField] private float currentHealth;
 
-    private SpriteRenderer sr;
-    private Color ogColor;
+    SpriteRenderer sr;
+    Color ogColor;
 
-    private void Awake()
+    void Awake()
     {
         currentHealth = startingHealth;
     }
@@ -40,7 +40,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void takeDamage(float _Damage)
+    void takeDamage(float _Damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _Damage, 0, startingHealth);
 

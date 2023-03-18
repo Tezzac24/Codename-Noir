@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 118379997403106035}
-  bulletPrefab: {fileID: 3630572458687893922, guid: 7e87c1286d9c7a0428121ebf81df7bf4, type: 3}
+  bulletPrefab: {fileID: 6330435824016858897, guid: 3617749c94db9f042a36fd82ae30682e, type: 3}
   bulletForce: 2.5
 --- !u!114 &118379997429090475
 MonoBehaviour:
@@ -195,9 +195,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3f7b728efc9274690bda0a6138c5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 837913371603401206, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
   speed: 0.5
   distance: 0
+  chaseDist: 7
 --- !u!114 &831690451
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,21 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float moveSpeed = 2.5f;
-    private bool facingRight = true;
+    bool facingRight = true;
 
-    private bool canDash = true;
-    private bool isDashing;
+    bool canDash = true;
+    bool isDashing;
     [SerializeField] private float dashingPower = 4f;
-    private float dashingTime = 0.2f;
-    private float dashingCooldown = 2.5f;
+    float dashingTime = 0.2f;
+    float dashingCooldown = 2.5f;
 
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
     public Camera cam;
-    private Vector2 movement;
-    private Vector2 mousePos;
-    private Animator anim;
+    Vector2 movement;
+    Vector2 mousePos;
+    Animator anim;
     public GameObject firepoint;
-    private WeaponShooting Ws;
+    WeaponShooting Ws;
 
     void Start()
     {
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private IEnumerator Dash() 
+    IEnumerator Dash() 
     {
         canDash = false;
         isDashing = true;
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    private void flip()
+    void flip()
     {
         facingRight = !facingRight; // if var is true it will set to false if false it sets to true
         transform.Rotate(0, 180, 0);

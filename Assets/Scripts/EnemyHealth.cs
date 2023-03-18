@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float startingHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] float startingHealth;
+    [SerializeField] float currentHealth;
 
-    private SpriteRenderer sr;
-    private Color ogColor;
+    SpriteRenderer sr;
+    Color ogColor;
 
-    private void Awake()
+    void Awake()
     {
         currentHealth = startingHealth;
     }
@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void takeDamage(float _Damage)
+    void takeDamage(float _Damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _Damage, 0, startingHealth);
 
