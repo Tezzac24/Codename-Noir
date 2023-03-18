@@ -9,6 +9,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         Physics2D.IgnoreLayerCollision(8, 7, true);
+        Physics2D.IgnoreLayerCollision(8, 8, true);
         Physics2D.IgnoreLayerCollision(8, 9, true);
     }
 
