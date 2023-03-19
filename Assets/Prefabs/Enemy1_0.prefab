@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1809945519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1809945520}
+  m_Layer: 9
+  m_Name: Firepoint
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1809945520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809945519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5883164513669728087}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5883164513669728076
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,10 +42,11 @@ GameObject:
   - component: {fileID: 5883164513669728087}
   - component: {fileID: 5883164513669728086}
   - component: {fileID: 5883164513669728081}
-  - component: {fileID: 5883164513669728080}
+  - component: {fileID: 668935926}
   - component: {fileID: 5883164513669728083}
   - component: {fileID: 5883164513669728082}
   - component: {fileID: 5883164513669728077}
+  - component: {fileID: 668935934}
   m_Layer: 9
   m_Name: Enemy1_0
   m_TagString: Enemy
@@ -33,7 +65,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94388103, y: 0.94388103, z: 0.94388103}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1809945520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,32 +143,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5883164513669728080
-BoxCollider2D:
+--- !u!95 &668935926
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5883164513669728076}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.36}
-    newSize: {x: 0.23, y: 0.36}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 999df53365f165f49b4f45789163f5f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5883164513669728083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,9 +176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323bd6d38e97e80409c6bb386b673847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firepoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  bulletForce: 20
+  firepoint: {fileID: 1809945520}
+  bulletPrefab: {fileID: 6330435824016858897, guid: 3617749c94db9f042a36fd82ae30682e, type: 3}
+  bulletForce: 2.5
 --- !u!114 &5883164513669728082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +205,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3f7b728efc9274690bda0a6138c5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 837913371603401206, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
+  player: {fileID: 0}
   speed: 0.5
   distance: 0
-  chaseDist: 7
+  maxChaseDist: 7
+  minChaseDist: 1
+--- !u!70 &668935934
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883164513669728076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.23000003, y: 0.36000004}
+  m_Direction: 0
