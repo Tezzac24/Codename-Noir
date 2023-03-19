@@ -5,16 +5,17 @@ using UnityEngine;
 public class AIChase : MonoBehaviour
 {
     public GameObject player;
-    private Rigidbody2D rb;
+    public GameObject firepoint;
     
     [SerializeField] float speed;
     public float distance;
     public float maxChaseDist = 7;
-    public float minChaseDist = 2;
+    public float minChaseDist = 1;
+    bool facingRight = true;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
@@ -29,15 +30,25 @@ public class AIChase : MonoBehaviour
         if (distance < maxChaseDist && distance > minChaseDist)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);                
+            //transform.rotation = Quaternion.Euler(Vector3.forward * angle);             
+            firepoint.transform.eulerAngles = new Vector3(0, 0, angle);  
         }
+
+        // if ((180 < angle || angle < 360) && !facingRight)
+        // {
+        //     flip();
+        // }
+        // else if ((angle < 180 || angle > 360) && facingRight)
+        // {
+        //    flip();
+        // }
+
     }
 
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if(collision.gameObject.CompareTag("Wall"))
-    //     {
-    //         rb.velocity = Vector2.zero;
-    //     }
-    // }
+    void flip()
+    {
+        facingRight = !facingRight; // if var is true it will set to false if false it sets to true
+        transform.Rotate(0, 180, 0);
+
+    }
 }

@@ -29383,10 +29383,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 837913371486757842, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 837913371603401201, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -29431,10 +29427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 837913371603401203, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
-      propertyPath: bulletForce
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 837913371603401206, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
       propertyPath: m_Name
       value: Noir
@@ -29443,14 +29435,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 837913371603401214, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 837913371603401214, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf5ca5a9c666ba4fa1f7cee394eea85, type: 3}
 --- !u!1001 &4765249507849381551

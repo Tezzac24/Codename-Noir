@@ -56,7 +56,7 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator SwitchColor()
     {
-        sr.color = new Color(255f, 255f, 255f);
+        sr.color = new Color(255f, 0f, 0f);
         yield return new WaitForSeconds(0.1f);
         sr.color = ogColor;
     }
