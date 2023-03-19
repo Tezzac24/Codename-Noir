@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &32487567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 831690443}
+  - {fileID: 1205914926}
   Camera: {fileID: 574111339}
   enemyCount: 0
   MaxEnemy: 15
@@ -218,12 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - enemyPrefab: {fileID: 831690443}
+  - enemyPrefab: {fileID: 1205914926}
     cost: 5
-  - enemyPrefab: {fileID: 831690443}
-    cost: 2
-  - enemyPrefab: {fileID: 831690443}
-    cost: 1
   currWave: 0
   enemiesToSpawn: []
   spawnLocation:
@@ -23992,11 +23988,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &831690443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 118379997429090466, guid: c984a75c10bfb0149b19a6fcdce7a992, type: 3}
-  m_PrefabInstance: {fileID: 118379997350615601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1056912786
 GameObject:
   m_ObjectHideFlags: 0
@@ -28915,6 +28906,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!1 &1205914926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5883164513669728076, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
+  m_PrefabInstance: {fileID: 5883164513253515682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268940206
 GameObject:
   m_ObjectHideFlags: 0
@@ -29535,11 +29531,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5883164513669728087, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5883164513669728087, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5883164513669728087, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
       propertyPath: m_LocalPosition.z
