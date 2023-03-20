@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float startingHealth;
-    [SerializeField] private float currentHealth;
+    [SerializeField] float startingHealth;
+    [SerializeField] float currentHealth;
+    public bool isDead = false;
 
     SpriteRenderer sr;
     Color ogColor;
@@ -26,8 +27,7 @@ public class Health : MonoBehaviour
         // Destroys object when health runs out
         if(currentHealth <= 0)
         {
-            //isDead = true;
-            Debug.Log("Game over shit kid do better");
+            isDead = true;
         }
     }
 

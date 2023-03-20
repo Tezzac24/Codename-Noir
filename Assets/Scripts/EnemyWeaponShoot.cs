@@ -13,7 +13,7 @@ public class EnemyWeaponShoot : MonoBehaviour
 
     void Start()
     {
-        ai = gameObject.GetComponent<AIChase>();
+        ai = GetComponent<AIChase>();
     }
 
     void Update()
