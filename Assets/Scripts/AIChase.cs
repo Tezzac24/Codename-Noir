@@ -18,12 +18,12 @@ public class AIChase : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // gets dist, dir and angle
         distance = Vector2.Distance(this.transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
+        //direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
         // sets the distance at which the enemy will chase the player
@@ -34,15 +34,15 @@ public class AIChase : MonoBehaviour
             firepoint.transform.eulerAngles = new Vector3(0, 0, angle);  
         }
 
-        // if ((180 < angle || angle < 360) && !facingRight)
-        // {
-        //     flip();
-        // }
-        // else if ((angle < 180 || angle > 360) && facingRight)
-        // {
-        //    flip();
-        // }
 
+        if (direction.x <= 0 && facingRight)
+        {
+            flip();
+        } 
+        else if (direction.x >= 0 && !facingRight)
+        {
+           flip();
+        }
     }
 
     void flip()
