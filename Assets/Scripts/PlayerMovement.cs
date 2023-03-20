@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float moveSpeed = 2.5f;
     bool facingRight = true;
 
+    [Header("dashing")]
     bool canDash = true;
     bool isDashing;
     [SerializeField] private float dashingPower = 4f;
@@ -18,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Vector2 mousePos;
     Animator anim;
-    public GameObject firepoint;
-    WeaponShooting Ws;
+    WeaponShooting ws;
+    Health hp;
 
     void Start()
     {
@@ -27,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         // Initialises variable 'rb' as Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
         anim =  GetComponent<Animator>();
+        ws = GetComponent<WeaponShooting>();
+        hp = GetComponent<Health>();
     }
 
     void Update()
@@ -42,36 +45,44 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         movement.x = Input.GetAxisRaw("Horizontal");
 
-        // sets anims
-        if (movement != new Vector2(0,0))
+        if(!hp.isDead)
         {
-            anim.SetBool("isMoving", true);
-        }
-        else
-        {
-            anim.SetBool("isMoving", false);
+            // sets moving anims
+            if (movement != new Vector2(0,0))
+            {
+                anim.SetBool("isMoving", true);
+            }
+            else
+            {
+                anim.SetBool("isMoving", false);
+            }
+
+            // flip func
+            if(movement.x > 0 && facingRight) // if you move left but are facing right flip left
+            {
+                flip();
+            }
+            else if (movement.x < 0 && !facingRight)
+            {
+                flip();
+            }
+
+            // Changes mouseposition val from screen pixels to in World coordinates
+
+            // on key down dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                anim.SetBool("isDashing", true);
+                StartCoroutine(Dash());
+            }
         }
 
-        // flip func
-        if(movement.x > 0 && facingRight) // if you move left but are facing right flip left
+        if (hp.isDead)
         {
-            flip();
+            movement = new Vector2(0,0);
+            Physics2D.IgnoreLayerCollision(6, 8, true);
         }
-        else if (movement.x < 0 && !facingRight)
-        {
-            flip();
-        }
-
-        // Changes mouseposition val from screen pixels to in World coordinates
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        // on key down dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            anim.SetBool("isDashing", true);
-            StartCoroutine(Dash());
-        }
-
     }
 
     void FixedUpdate()
@@ -84,11 +95,11 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         
-        // Makes player sprite face mouse cursor
+        // Aims firepoint
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         //rb.rotation = angle;
-        firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
+        ws.firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
 
     }
 

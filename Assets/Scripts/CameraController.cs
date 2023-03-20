@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] private Vector3 offset;
-    [SerializeField] private float damping;
+    [SerializeField] Vector3 offset;
+    [SerializeField] float damping;
 
-    private Vector3 velocity = Vector3.zero;
+    Vector3 velocity = Vector3.zero;
 
     // Follows the target
     void Update()
