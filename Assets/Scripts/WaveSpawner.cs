@@ -7,16 +7,16 @@ public class WaveSpawner : MonoBehaviour
    
     public List<Enemy> enemies = new List<Enemy>();
     public int currWave;
-    private int waveValue;
+    int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
  
     public Transform[] spawnLocation;
     public int spawnIndex;
  
     public int waveDuration;
-    private float waveTimer;
-    private float spawnInterval;
-    private float spawnTimer;
+    float waveTimer;
+    float spawnInterval;
+    float spawnTimer;
  
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
