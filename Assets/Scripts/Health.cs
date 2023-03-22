@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
     SpriteRenderer sr;
     Color ogColor;
 
+    Animator anim;
+
     void Awake()
     {
         currentHealth = startingHealth;
@@ -21,6 +23,7 @@ public class Health : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         ogColor = sr.color;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -30,7 +33,6 @@ public class Health : MonoBehaviour
         {
             isDead = true;
             Debug.Log("Game over shit kid do better");
-            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -55,6 +57,7 @@ public class Health : MonoBehaviour
         else
         {
             // player is ded anim
+            StartCoroutine(Death());
         }
     }
 
@@ -63,5 +66,15 @@ public class Health : MonoBehaviour
         sr.color = new Color(255f, 0f, 0f);
         yield return new WaitForSeconds(0.1f);
         sr.color = ogColor;
+    }
+
+    IEnumerator Death()
+    {
+        anim.SetBool("isDying", true);
+        yield return new WaitForSeconds(.5f);
+        anim.SetBool("isDying", false);
+        anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("GameOver");
     }
 }
