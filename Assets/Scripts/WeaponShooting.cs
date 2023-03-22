@@ -8,11 +8,17 @@ public class WeaponShooting : MonoBehaviour
     public GameObject bulletPrefab;
 
     [SerializeField] float bulletForce = 20f;
+    Health hp;
+
+    void Start()
+    {
+        hp = GetComponent<Health>();
+    }
 
     void Update()
     {
         // On left click shoot
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !hp.isDead)
         {
             Shoot();
         }
