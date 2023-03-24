@@ -6,16 +6,17 @@ public class AIChase : MonoBehaviour
 {
     public GameObject player;
     public GameObject firepoint;
+    public EnemyScriptableObject enemySO;
     
     [SerializeField] float speed;
     public float distance;
-    public float maxChaseDist = 7;
-    public float minChaseDist = 1;
-    bool facingRight = true;
+    // public float maxChaseDist = 7;
+    // public float minChaseDist = 1;
+    // bool facingRight = true;
 
     void Start()
     {
-
+        
     }
 
     void FixedUpdate()
@@ -27,7 +28,7 @@ public class AIChase : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
         // sets the distance at which the enemy will chase the player
-        if (distance < maxChaseDist && distance > minChaseDist)
+        if (distance < enemySO.maxChaseDist && distance > enemySO.minChaseDist)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             //transform.rotation = Quaternion.Euler(Vector3.forward * angle);             
@@ -35,11 +36,11 @@ public class AIChase : MonoBehaviour
         }
 
 
-        if (direction.x <= 0 && facingRight)
+        if (direction.x <= 0 && enemySO.facingRight)
         {
             flip();
         } 
-        else if (direction.x >= 0 && !facingRight)
+        else if (direction.x >= 0 && !enemySO.facingRight)
         {
            flip();
         }
@@ -47,7 +48,7 @@ public class AIChase : MonoBehaviour
 
     void flip()
     {
-        facingRight = !facingRight; // if var is true it will set to false if false it sets to true
+        enemySO.facingRight = !enemySO.facingRight; // if var is true it will set to false if false it sets to true
         transform.Rotate(0, 180, 0);
 
     }

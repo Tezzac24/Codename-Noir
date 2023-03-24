@@ -23,7 +23,7 @@ public class EnemyWeaponShoot : MonoBehaviour
         // lets enemy shoot in intervals
         timer += Time.deltaTime;
 
-        if (timer > 2 && ai.distance < ai.maxChaseDist && !hp.isDead)
+        if (timer > 2 && ai.distance < ai.enemySO.maxChaseDist && !hp.isDead)
         {
             timer = 0;
             Shoot();
