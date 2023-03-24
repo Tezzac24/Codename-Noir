@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 45e6c49119e766b49bf273cd0d05c917
+guid: 8cd778a8b555896419c0645f12bf8ae2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart_0
+      name: Heart 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af9664ae1294d2341be473a4d842e2e5
-      internalID: -1426782717
+      spriteID: 68661855cacf38c4b91214a77acad5ea
+      internalID: -888472630
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Heart_0: -1426782717
+      Heart 1_0: -888472630
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
