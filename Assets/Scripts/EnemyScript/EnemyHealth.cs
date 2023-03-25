@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] float startingHealth;
+    public EnemyScriptableObject enemySO;
+
     [SerializeField] float currentHealth;
 
     SpriteRenderer sr;
@@ -12,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake()
     {
-        currentHealth = startingHealth;
+        currentHealth = enemySO.maxHealth;
     }
 
     void Start()
@@ -41,7 +42,7 @@ public class EnemyHealth : MonoBehaviour
 
     void takeDamage(float _Damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - _Damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - _Damage, 0, enemySO.maxHealth);
 
         if (currentHealth > 0)
         {
