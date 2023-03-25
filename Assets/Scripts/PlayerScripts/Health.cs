@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float startingHealth;
-    [SerializeField] float currentHealth;
+    public static event Action OnPlayerDamaged;
+
+    public float startingHealth;
+    public float currentHealth;
     public bool isDead = false;
 
     SpriteRenderer sr;
     Color ogColor;
-
     Animator anim;
+
+    HealthHeartBar hpBar;
 
     void Awake()
     {
         currentHealth = startingHealth;
+        hpBar = GameObject.Find("HealthHearts").GetComponent<HealthHeartBar>();
     }
 
     void Start()
@@ -41,7 +46,9 @@ public class Health : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            takeDamage(20);
+            takeDamage(1);
+            //hpBar.DrawHearts();
+            OnPlayerDamaged?.Invoke();
         }
     }
 
