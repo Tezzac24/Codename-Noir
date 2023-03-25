@@ -12,7 +12,7 @@ public class AIChase : MonoBehaviour
     public float distance;
     // public float maxChaseDist = 7;
     // public float minChaseDist = 1;
-    // bool facingRight = true;
+    bool facingRight = true;
 
     void Start()
     {
@@ -36,11 +36,11 @@ public class AIChase : MonoBehaviour
         }
 
 
-        if (direction.x <= 0 && enemySO.facingRight)
+        if (direction.x <= 0 && facingRight)
         {
             flip();
         } 
-        else if (direction.x >= 0 && !enemySO.facingRight)
+        else if (direction.x >= 0 && !facingRight)
         {
            flip();
         }
@@ -48,7 +48,7 @@ public class AIChase : MonoBehaviour
 
     void flip()
     {
-        enemySO.facingRight = !enemySO.facingRight; // if var is true it will set to false if false it sets to true
+        facingRight = !facingRight; // if var is true it will set to false if false it sets to true
         transform.Rotate(0, 180, 0);
 
     }

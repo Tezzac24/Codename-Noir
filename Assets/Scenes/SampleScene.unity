@@ -30596,6 +30596,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 503565554}
+    - target: {fileID: 5883164513669728077, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
+      propertyPath: enemySO
+      value: 
+      objectReference: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
+    - target: {fileID: 5883164513669728082, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
+      propertyPath: enemySO
+      value: 
+      objectReference: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
+    - target: {fileID: 5883164513669728083, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
+      propertyPath: enemySO
+      value: 
+      objectReference: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
     - target: {fileID: 5883164513669728087, guid: 07dde42e7dad0b441b2c6d20f8c342fe, type: 3}
       propertyPath: m_RootOrder
       value: 8
