@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323bd6d38e97e80409c6bb386b673847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySO: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
   firepoint: {fileID: 1809945520}
   bulletPrefab: {fileID: 6330435824016858897, guid: 3617749c94db9f042a36fd82ae30682e, type: 3}
   bulletForce: 2.5
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f44c5f1f53ce0748914666fc0a1a534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  enemySO: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
   currentHealth: 0
 --- !u!114 &5883164513669728077
 MonoBehaviour:
@@ -207,10 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   firepoint: {fileID: 1809945519}
+  enemySO: {fileID: 11400000, guid: c059da682e185f148805966f6aa2b79d, type: 2}
   speed: 0.5
   distance: 0
-  maxChaseDist: 7
-  minChaseDist: 1
 --- !u!70 &668935934
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
