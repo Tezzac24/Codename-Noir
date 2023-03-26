@@ -16,10 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     public Camera cam;
+    public GameObject firepoint;
     Vector2 movement;
     Vector2 mousePos;
     Animator anim;
-    WeaponShooting ws;
     Health hp;
 
     void Start()
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
         // Initialises variable 'rb' as Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
         anim =  GetComponent<Animator>();
-        ws = GetComponent<WeaponShooting>();
         hp = GetComponent<Health>();
     }
 
@@ -99,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         //rb.rotation = angle;
-        ws.firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
+        firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
 
     }
 
