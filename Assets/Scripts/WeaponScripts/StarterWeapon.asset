@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159e83c4587f0a04ea7197bc33297afd, type: 3}
   m_Name: StarterWeapon
   m_EditorClassIdentifier: 
-  name: 
+  name: Peashooter
   damage: 20
+  bulletForce: 20
   bulletPattern: 0
-  currentAmmo: 8
+  currentAmmo: 4
   magSize: 8
-  fireRate: 500
-  reloadTime: 0
+  fireRate: 300
+  reloadTime: 1.5
   reloading: 0
