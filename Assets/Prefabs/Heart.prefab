@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ab88c064dfb0f498c9104223baa454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHeart: {fileID: -888472630, guid: 8cd778a8b555896419c0645f12bf8ae2, type: 3}
-  halfHeart: {fileID: -1426782717, guid: 45e6c49119e766b49bf273cd0d05c917, type: 3}
+  fullHeart: {fileID: -1426782717, guid: 45e6c49119e766b49bf273cd0d05c917, type: 3}
+  halfHeart: {fileID: -888472630, guid: 8cd778a8b555896419c0645f12bf8ae2, type: 3}

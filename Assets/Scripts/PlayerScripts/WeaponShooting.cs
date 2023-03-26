@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WeaponShooting : MonoBehaviour
 {
-    public Transform firepoint;
-    public GameObject bulletPrefab;
+    public static Action shootInput;
+    public static Action reloadInput;
 
-    [SerializeField] float bulletForce = 20f;
+    // public Transform firepoint;
+    // public Transform gunEndPoint;
+    // [SerializeField] GameObject bulletPrefab;
     Health hp;
+
+    [SerializeField] WeaponScriptableObject weaponSO;
 
     void Start()
     {
@@ -20,14 +25,12 @@ public class WeaponShooting : MonoBehaviour
         // On left click shoot
         if(Input.GetMouseButtonDown(0) && !hp.isDead)
         {
-            Shoot();
+            shootInput?.Invoke();
         }
-    }
 
-    void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.up * bulletForce, ForceMode2D.Impulse);
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            reloadInput?.Invoke();
+        }
     }
 }
