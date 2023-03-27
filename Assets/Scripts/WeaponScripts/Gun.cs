@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     {
         WeaponShooting.shootInput += Shoot;
         WeaponShooting.reloadInput += StartReload;
+        weaponSO.currentAmmo = weaponSO.magSize;
     }
 
     void Update()
@@ -29,8 +30,11 @@ public class Gun : MonoBehaviour
     {
         if (weaponSO.currentAmmo > 0 && CanShoot())
         {
-            GameObject bullet = Instantiate(bulletPrefab, gunEndPoint.position, firepoint.rotation);
+            GameObject bullet = ObjectPool.instance.GetPooledObject();//Instantiate(bulletPrefab, gunEndPoint.position, firepoint.rotation);
+            bullet.transform.position = gunEndPoint.transform.position;
+            bullet.transform.rotation = firepoint.rotation;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            bullet.SetActive(true);
             rb.AddForce(firepoint.up * weaponSO.bulletForce, ForceMode2D.Impulse);
             weaponSO.currentAmmo--;
             timeSinceLastShot = 0;

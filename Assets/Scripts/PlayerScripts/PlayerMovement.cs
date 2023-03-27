@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Physics2D.IgnoreLayerCollision(6, 7, true);
         // disables inputs momentarily while player dashes
         if (isDashing)
         {
