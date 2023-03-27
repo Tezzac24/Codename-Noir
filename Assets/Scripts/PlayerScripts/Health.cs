@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
+        Physics2D.IgnoreLayerCollision(6, 7, true);
         currentHealth = startingHealth;
         hpBar = GameObject.Find("HealthHearts").GetComponent<HealthHeartBar>();
     }

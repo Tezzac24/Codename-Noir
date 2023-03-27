@@ -139,13 +139,14 @@ GameObject:
   - component: {fileID: 32487568}
   - component: {fileID: 32487567}
   - component: {fileID: 32487569}
+  - component: {fileID: 32487570}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &32487567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - enemyPrefab: {fileID: 1205914926}
-    cost: 5
+    cost: 2
   currWave: 0
   enemiesToSpawn: []
   spawnLocation:
@@ -204,6 +205,22 @@ MonoBehaviour:
   spawnIndex: 0
   waveDuration: 100
   spawnedEnemies: []
+--- !u!114 &32487570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32487566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90643678c6cf32f4c90309f38bc58cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3630572458687893922, guid: 7e87c1286d9c7a0428121ebf81df7bf4, type: 3}
+  pooledObjects: []
+  countToPool: 20
+  canExpand: 0
 --- !u!4 &320427745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 320427745, guid: 26a69db02c818c542ae8ffc45c57c9c0, type: 3}

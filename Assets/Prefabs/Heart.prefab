@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullHeart: {fileID: -1426782717, guid: 45e6c49119e766b49bf273cd0d05c917, type: 3}
   halfHeart: {fileID: -888472630, guid: 8cd778a8b555896419c0645f12bf8ae2, type: 3}
+  emptyHeart: {fileID: 53957370, guid: 47c419f7378d1d345a35c9364b99c22d, type: 3}
