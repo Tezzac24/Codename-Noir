@@ -16,13 +16,10 @@ public class Health : MonoBehaviour
     Color ogColor;
     Animator anim;
 
-    HealthHeartBar hpBar;
-
     void Awake()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
         currentHealth = startingHealth;
-        hpBar = GameObject.Find("HealthHearts").GetComponent<HealthHeartBar>();
     }
 
     void Start()
@@ -48,7 +45,6 @@ public class Health : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             takeDamage(1);
-            //hpBar.DrawHearts();
             OnPlayerDamaged?.Invoke();
         }
     }
