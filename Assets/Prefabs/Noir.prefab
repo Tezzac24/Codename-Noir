@@ -158,7 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.2
   dashingPower: 4
-  cam: {fileID: 0}
   firepoint: {fileID: 837913371486757841}
 --- !u!114 &837913371603401203
 MonoBehaviour:
@@ -172,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458774d4f88ba8469b5d23142b1b0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 11400000, guid: e33617077ffefe141a375842bd1ff5a0, type: 2}
 --- !u!114 &837913371603401202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a27a62a60302eb43918dd34993f93b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 11400000, guid: e33617077ffefe141a375842bd1ff5a0, type: 2}
+  weaponSO: {fileID: 11400000, guid: cc93e3c7cbd2d0642bd3cdc230cdede8, type: 2}
   firepoint: {fileID: 837913371486757842}
   gunEndPoint: {fileID: 8497485475032557769}
   bulletPrefab: {fileID: 3630572458687893922, guid: 7e87c1286d9c7a0428121ebf81df7bf4, type: 3}

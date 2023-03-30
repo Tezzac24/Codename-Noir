@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     float dashingCooldown = 2.5f;
 
     Rigidbody2D rb;
-    public Camera cam;
+    Camera cam;
     public GameObject firepoint;
     Vector2 movement;
     Vector2 mousePos;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim =  GetComponent<Animator>();
         hp = GetComponent<Health>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()

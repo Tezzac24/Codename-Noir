@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class AIChase : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
     public GameObject firepoint;
     public EnemyScriptableObject enemySO;
     Animator anim;
     
     [SerializeField] float speed;
     public float distance;
-    // public float maxChaseDist = 7;
-    // public float minChaseDist = 1;
     bool facingRight = true;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        player = GameObject.Find("Noir");
     }
 
     void FixedUpdate()
