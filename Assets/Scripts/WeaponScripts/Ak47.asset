@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 20
   bulletForce: 20
   bulletPattern: 0
-  currentAmmo: 0
+  currentAmmo: 30
   magSize: 30
-  fireRate: 400
+  fireRate: 600
   reloadTime: 2
   reloading: 0
