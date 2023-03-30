@@ -13,8 +13,6 @@ public class WeaponShooting : MonoBehaviour
     // [SerializeField] GameObject bulletPrefab;
     Health hp;
 
-    [SerializeField] WeaponScriptableObject weaponSO;
-
     void Start()
     {
         hp = GetComponent<Health>();
@@ -23,7 +21,7 @@ public class WeaponShooting : MonoBehaviour
     void Update()
     {
         // On left click shoot
-        if(Input.GetMouseButtonDown(0) && !hp.isDead)
+        if(Input.GetMouseButton(0) && !hp.isDead)
         {
             shootInput?.Invoke();
         }

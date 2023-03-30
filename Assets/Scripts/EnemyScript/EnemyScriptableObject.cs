@@ -8,6 +8,5 @@ public class EnemyScriptableObject : ScriptableObject
     public float maxHealth;
     public float maxChaseDist;
     public float minChaseDist;
-    public bool facingRight = true;
-
+    //public bool facingRight = true;
 }

@@ -70,7 +70,7 @@ public class WaveSpawner : MonoBehaviour
         waveValue = currWave * 30;
         GenerateEnemies();
  
-        spawnInterval = 0.3f; //waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
+        spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
     }
  
