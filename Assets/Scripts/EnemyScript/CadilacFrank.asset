@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CadilacFrank
   m_EditorClassIdentifier: 
   Name: 
-  maxHealth: 0
-  maxChaseDist: 0
-  minChaseDist: 0
+  maxHealth: 250
+  maxChaseDist: 7
+  minChaseDist: 2
