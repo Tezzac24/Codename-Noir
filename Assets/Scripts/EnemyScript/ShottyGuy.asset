@@ -16,3 +16,4 @@ MonoBehaviour:
   maxHealth: 140
   maxChaseDist: 7
   minChaseDist: 0.8
+  speed: 0.5

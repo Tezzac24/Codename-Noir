@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f4e2d4f509aa46838566d7a07e240, type: 3}
   m_Name: CadilacFrank
   m_EditorClassIdentifier: 
-  Name: 
+  Name: CadillacFrank
   maxHealth: 250
   maxChaseDist: 7
   minChaseDist: 2
+  speed: 0.2

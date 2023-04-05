@@ -9,7 +9,6 @@ public class AIChase : MonoBehaviour
     public EnemyScriptableObject enemySO;
     Animator anim;
     
-    [SerializeField] float speed;
     public float distance;
     bool facingRight = true;
 
@@ -31,7 +30,7 @@ public class AIChase : MonoBehaviour
         if (distance < enemySO.maxChaseDist && distance > enemySO.minChaseDist)
         {
             anim.SetBool("isWalking", true);
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, enemySO.speed * Time.deltaTime);
             //transform.rotation = Quaternion.Euler(Vector3.forward * angle);             
             firepoint.transform.eulerAngles = new Vector3(0, 0, angle);  
         }
