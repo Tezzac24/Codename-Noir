@@ -7,8 +7,12 @@ public class EnemyScriptableObject : ScriptableObject
 {
     public string Name;
 
+    [Header("AIchase")]
     public float maxHealth;
     public float maxChaseDist;
     public float minChaseDist;
     public float speed;
+
+    [Header("Shooting")]
+    public float fireRate;
 }
