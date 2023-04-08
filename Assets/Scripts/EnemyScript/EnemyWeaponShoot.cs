@@ -26,8 +26,8 @@ public class EnemyWeaponShoot : MonoBehaviour
 
         if (timer > 2 && ai.distance < enemySO.maxChaseDist && !hp.isDead)
         {
+            Shoot(); 
             timer = 0;
-            Shoot();
         }
     }
 

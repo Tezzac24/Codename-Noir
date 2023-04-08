@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     bool isDashing;
     [SerializeField] private float dashingPower = 4f;
     float dashingTime = 0.2f;
-    float dashingCooldown = 2.5f;
+    float dashingCooldown = .5f;
 
     Rigidbody2D rb;
     Camera cam;
