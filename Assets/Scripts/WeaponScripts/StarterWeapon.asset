@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Peashooter
   damage: 20
-  bulletForce: 20
+  bulletForce: 5
   bulletPattern: 0
   currentAmmo: 8
   magSize: 8
