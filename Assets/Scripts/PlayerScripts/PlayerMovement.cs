@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 mousePos;
     Animator anim;
     Health hp;
+    SpriteRenderer gunFlip;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         anim =  GetComponent<Animator>();
         hp = GetComponent<Health>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        gunFlip = GameObject.Find("WeaponHolder").GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -100,6 +102,15 @@ public class PlayerMovement : MonoBehaviour
         //rb.rotation = angle;
         firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
 
+        if (angle < 0 && angle > -180)
+        {
+            gunFlip.flipY = true;
+        }
+        else
+        {
+            gunFlip.flipY = false;
+        }
+        Debug.Log(angle.ToString());
     }
 
     IEnumerator Dash() 
@@ -123,6 +134,5 @@ public class PlayerMovement : MonoBehaviour
     {
         facingRight = !facingRight; // if var is true it will set to false if false it sets to true
         transform.Rotate(0, 180, 0);
-
     }
 }
