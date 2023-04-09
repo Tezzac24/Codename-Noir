@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Animator anim;
     Health hp;
     SpriteRenderer gunFlip;
+    SpriteRenderer[] gunflip;
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         anim =  GetComponent<Animator>();
         hp = GetComponent<Health>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        gunFlip = GameObject.Find("WeaponHolder").GetComponentInChildren<SpriteRenderer>();
+        gunflip = GameObject.Find("WeaponHolder").GetComponentsInChildren<SpriteRenderer>(true);
     }
 
     void Update()
@@ -102,13 +103,16 @@ public class PlayerMovement : MonoBehaviour
         //rb.rotation = angle;
         firepoint.transform.eulerAngles = new Vector3(0, 0, angle);
 
-        if (angle < 0 && angle > -180)
+        for(int i = 0; i < gunflip.Length; i++)
         {
-            gunFlip.flipY = true;
-        }
-        else
-        {
-            gunFlip.flipY = false;
+            if (angle < 0 && angle > -180)
+            {
+                gunflip[i].flipY = true;
+            }
+            else
+            {
+                gunflip[i].flipY = false;
+            }
         }
         Debug.Log(angle.ToString());
     }
