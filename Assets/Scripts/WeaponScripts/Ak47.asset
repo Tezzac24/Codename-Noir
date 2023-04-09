@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: AK47
   damage: 20
-  bulletForce: 20
+  bulletForce: 5
   bulletPattern: 0
-  currentAmmo: 30
-  magSize: 30
+  currentAmmo: 15
+  magSize: 15
   fireRate: 600
   reloadTime: 2
   reloading: 0
