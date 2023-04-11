@@ -9,14 +9,15 @@ public class EnemyWeaponShoot : MonoBehaviour
     public GameObject bulletPrefab;
     AIChase ai;
     Health hp;
+    ParticleSystem particle;
 
-    [SerializeField] float bulletForce = 20f;
     float timer;
 
     void Start()
     {
         ai = GetComponent<AIChase>();
         hp = GameObject.Find("Noir").GetComponent<Health>();
+        particle = GetComponent<ParticleSystem>();
     }
 
     void Update()
@@ -24,10 +25,15 @@ public class EnemyWeaponShoot : MonoBehaviour
         // lets enemy shoot in intervals
         timer += Time.deltaTime;
 
-        if (timer > 2 && ai.distance < enemySO.maxChaseDist && !hp.isDead)
+        if (timer > enemySO.fireRate && ai.distance < enemySO.maxChaseDist && !hp.isDead)
         {
+            //particle.Play(true);
             Shoot(); 
             timer = 0;
+        }
+        else
+        {
+            //particle.Stop(true);
         }
     }
 
@@ -36,6 +42,6 @@ public class EnemyWeaponShoot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.up * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(firepoint.up * enemySO.bulletForce, ForceMode2D.Impulse);
     }
 }

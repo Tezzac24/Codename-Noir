@@ -15,4 +15,5 @@ public class EnemyScriptableObject : ScriptableObject
 
     [Header("Shooting")]
     public float fireRate;
+    public float bulletForce;
 }

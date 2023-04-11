@@ -17,3 +17,5 @@ MonoBehaviour:
   maxChaseDist: 7
   minChaseDist: 2
   speed: 0.2
+  fireRate: 0.2
+  bulletForce: 4
