@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
 
     public void StartReload()
     {
-        if(!weaponSO.reloading)
+        if(!weaponSO.reloading && gameObject.activeInHierarchy)
         {
             StartCoroutine(Reload());
         }

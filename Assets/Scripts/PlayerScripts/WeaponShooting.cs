@@ -8,9 +8,6 @@ public class WeaponShooting : MonoBehaviour
     public static Action shootInput;
     public static Action reloadInput;
 
-    // public Transform firepoint;
-    // public Transform gunEndPoint;
-    // [SerializeField] GameObject bulletPrefab;
     Health hp;
 
     void Start()
