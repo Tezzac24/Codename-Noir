@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public List<GameObject> enemies;
     public Transform Camera;
+    Coroutine spawnRoutine;
 
     [Header("Enemy params")]
     [SerializeField] private int enemyCount;
@@ -15,34 +16,34 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(EnemySpawn());
+        spawnRoutine = StartCoroutine(EnemySpawnLoop());
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        enemyCount = FindObjectsOfType<EnemyWeaponShoot>().Length;
-
-        if (enemyCount <= MaxEnemy)
+        if (spawnRoutine != null)
         {
-            StartCoroutine(EnemySpawn());
-        }
-        else
-        {
-            StopCoroutine(EnemySpawn());
+            StopCoroutine(spawnRoutine);
+            spawnRoutine = null;
         }
     }
 
-    private IEnumerator EnemySpawn()
+    private IEnumerator EnemySpawnLoop()
     {
-        // while (true)
-        // {
-            Vector3 enemySpawn = new Vector3(Camera.position.x, Camera.position.y + 3, 0);
+        while (true)
+        {
+            enemyCount = FindObjectsOfType<EnemyWeaponShoot>().Length;
 
-            int index = Random.Range(0, enemies.Count);
+            if (enemyCount <= MaxEnemy && enemies.Count > 0)
+            {
+                Vector3 enemySpawn = new Vector3(Camera.position.x, Camera.position.y + 3, 0);
+
+                int index = Random.Range(0, enemies.Count);
+
+                Instantiate(enemies[index], enemySpawn, Quaternion.identity);
+            }
 
             yield return new WaitForSeconds(waitTime);
-            Instantiate(enemies[index], enemySpawn, Quaternion.identity);
-        //}
+        }
     }
 }

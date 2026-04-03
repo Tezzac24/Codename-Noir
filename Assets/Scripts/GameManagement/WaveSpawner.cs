@@ -67,10 +67,25 @@ public class WaveSpawner : MonoBehaviour
  
     public void GenerateWave()
     {
-        waveValue = currWave * 30;
+        if (enemies.Count == 0)
+        {
+            Debug.LogError("WaveSpawner has no enemy definitions. Disabling spawner.");
+            enabled = false;
+            return;
+        }
+
+        waveValue = Mathf.Max(currWave, 1) * 30;
         GenerateEnemies();
- 
-        spawnInterval = waveDuration / enemiesToSpawn.Count; // gives a fixed time between each enemies
+
+        if (enemiesToSpawn.Count == 0)
+        {
+            Debug.LogWarning($"Wave {currWave} generated zero enemies. Ending wave early.");
+            spawnInterval = waveDuration;
+            waveTimer = 0f;
+            return;
+        }
+
+        spawnInterval = Mathf.Max(0.01f, (float)waveDuration / enemiesToSpawn.Count); // gives a fixed time between each enemies
         waveTimer = waveDuration; // wave duration is read only
     }
  
@@ -87,11 +102,13 @@ public class WaveSpawner : MonoBehaviour
         //  -> if we have no points left, leave the loop
  
         List<GameObject> generatedEnemies = new List<GameObject>();
-        while(waveValue>0 || generatedEnemies.Count <50)
+        int safetyCounter = 0;
+        while(waveValue > 0 && generatedEnemies.Count < 50 && safetyCounter < 500)
         {
+            safetyCounter++;
             int randEnemyId = Random.Range(0, enemies.Count);
             int randEnemyCost = enemies[randEnemyId].cost;
- 
+
             if(waveValue-randEnemyCost>=0)
             {
                 generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
@@ -101,6 +118,11 @@ public class WaveSpawner : MonoBehaviour
             {
                 break;
             }
+        }
+
+        if (safetyCounter >= 500)
+        {
+            Debug.LogWarning("WaveSpawner stopped enemy generation after reaching safety iteration limit.");
         }
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
