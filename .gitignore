@@ -27,7 +27,13 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 # Visual Studio cache directory
-.vs/
+**/.vs/
+
+# VS Code workspace settings
+.vscode/
+
+# JetBrains Rider workspace
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -61,8 +67,11 @@ sysinfo.txt
 # Builds
 *.apk
 *.aab
+*.ipa
 *.unitypackage
 *.app
+*.dSYM
+*.dSYM.zip
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -73,5 +82,18 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Addressables built content
+/[Aa]ssets/[Ss]treamingAssets/[Aa]ddressable[Ss]/
+/[Aa]ssets/[Ss]treamingAssets/[Aa]ddressable[Ss].meta
+
+# Unity 6 backup slices
+/[Bb]ackup[Ss]lices/
+
+# OS-generated metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
