@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        rb.velocity = movement * dashingPower;
+        rb.linearVelocity = movement * dashingPower;
 
         // momentarily gives iframes for the duration of dashingTime
         Physics2D.IgnoreLayerCollision(6, 8, true);
