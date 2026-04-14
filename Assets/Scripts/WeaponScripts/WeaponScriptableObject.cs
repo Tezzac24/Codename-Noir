@@ -19,4 +19,10 @@ public class WeaponScriptableObject : ScriptableObject
     public float fireRate;
     public float reloadTime;
     public bool reloading;
+
+    public void ResetRuntimeState()
+    {
+        currentAmmo = magSize;
+        reloading = false;
+    }
 }

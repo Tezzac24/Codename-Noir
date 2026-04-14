@@ -12,11 +12,26 @@ public class Gun : MonoBehaviour
     public Transform gunEndPoint;
     [SerializeField] GameObject bulletPrefab;
 
-    void Start()
+    void OnEnable()
     {
         WeaponShooting.shootInput += Shoot;
         WeaponShooting.reloadInput += StartReload;
-        weaponSO.currentAmmo = weaponSO.magSize;
+
+        timeSinceLastShot = 0f;
+        weaponSO?.ResetRuntimeState();
+    }
+
+    void OnDisable()
+    {
+        WeaponShooting.shootInput -= Shoot;
+        WeaponShooting.reloadInput -= StartReload;
+
+        StopAllCoroutines();
+
+        if (weaponSO != null)
+        {
+            weaponSO.reloading = false;
+        }
     }
 
     void Update()
@@ -25,15 +40,36 @@ public class Gun : MonoBehaviour
     }
 
     bool CanShoot() => !weaponSO.reloading && timeSinceLastShot > 1f / (weaponSO.fireRate / 60f);
-    
+
     void Shoot()
     {
+        if (weaponSO == null || firepoint == null || gunEndPoint == null)
+        {
+            return;
+        }
+
         if (weaponSO.currentAmmo > 0 && CanShoot())
         {
+            if (ObjectPool.instance == null)
+            {
+                return;
+            }
+
             GameObject bullet = ObjectPool.instance.GetPooledObject();//Instantiate(bulletPrefab, gunEndPoint.position, firepoint.rotation);
+            if (bullet == null)
+            {
+                return;
+            }
+
             bullet.transform.position = gunEndPoint.transform.position;
             bullet.transform.rotation = firepoint.rotation;
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            if (rb == null)
+            {
+                return;
+            }
+
             bullet.SetActive(true);
             rb.AddForce(firepoint.up * weaponSO.bulletForce, ForceMode2D.Impulse);
             weaponSO.currentAmmo--;
@@ -43,7 +79,7 @@ public class Gun : MonoBehaviour
 
     public void StartReload()
     {
-        if(!weaponSO.reloading && gameObject.activeInHierarchy)
+        if (weaponSO != null && !weaponSO.reloading && gameObject.activeInHierarchy)
         {
             StartCoroutine(Reload());
         }
@@ -56,5 +92,4 @@ public class Gun : MonoBehaviour
         weaponSO.currentAmmo = weaponSO.magSize;
         weaponSO.reloading = false;
     }
-
 }

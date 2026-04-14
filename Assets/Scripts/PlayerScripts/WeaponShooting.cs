@@ -15,8 +15,19 @@ public class WeaponShooting : MonoBehaviour
         hp = GetComponent<Health>();
     }
 
+    void OnDestroy()
+    {
+        shootInput = null;
+        reloadInput = null;
+    }
+
     void Update()
     {
+        if (hp == null)
+        {
+            return;
+        }
+
         // On left click shoot
         if(Input.GetMouseButton(0) && !hp.isDead)
         {
